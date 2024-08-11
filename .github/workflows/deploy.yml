@@ -1,0 +1,40 @@
+name: Build & deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 16
+    
+    - name: Install NPM packages
+      run: npm ci
+      
+    - name: Update Browser list
+      run: npx browserslist --update-db
+    
+    - name: Generate project
+      run: npm run generate
+
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        external_repository: kirankumar6676/kirankumar6676.github.io
+        publish_dir: ../www
