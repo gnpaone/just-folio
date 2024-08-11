@@ -425,7 +425,7 @@ div
     font-size 2.5rem
     line-height 8rem
     font-weight normal
-    letter-spacing 2rem
+    letter-spacing calc((100vh - 300px) / 20)
     max-width 50rem
     margin 0 auto
     writing-mode vertical-rl
