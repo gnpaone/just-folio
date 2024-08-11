@@ -1,0 +1,141 @@
+[
+  {
+    "slug": "project1",
+    "title": "Project<br>1",
+    "cover": "hero.jpg",
+    "color": "#FFFFFF",
+    "year": "2024",
+    "keywords": ["reactJs", "threeJs", "tailwindcss"],
+    "desc": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+    "content": [
+      {
+        "type": "vVideo",
+        "src": "project.mp4"
+      },
+      {
+        "type": "vImage",
+        "src": "project-1.jpg"
+      },
+      {
+        "type": "vImageFull",
+        "src": "project-2.jpg"
+      },
+      {
+        "type": "vImage",
+        "src": "project-3.jpg"
+      }
+    ],
+    "credits": [
+      "<a href=\"https://github.com/\" target=\"_blank\" rel=\"noopener\">Person 1</a>",
+      "<a href=\"https://github.com/\" target=\"_blank\" rel=\"noopener\">Person 2</a>"
+    ]
+  },
+  {
+    "slug": "project2",
+    "title": "Project<br>2",
+    "cover": "hero.jpg",
+    "color": "#FFFFFF",
+    "year": "2024",
+    "keywords": ["reactJs", "threeJs", "tailwindcss"],
+    "desc": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+    "content": [
+      {
+        "type": "vColumn",
+        "media": [
+          {
+            "type": "image",
+            "src": "project-1a.jpg"
+          },
+          {
+            "type": "imageSafari",
+            "src": "project-1b.jpg"
+          },
+          {
+            "type": "video",
+            "src": "project.mp4"
+          }
+        ]
+      },
+      {
+        "type": "vImageFull",
+        "src": "project-2.jpg"
+      },
+      {
+        "type": "vImage",
+        "src": "project-3.jpg"
+      },
+      {
+        "type": "vColumn",
+        "media": [
+          {
+            "type": "video",
+            "src": "project-3.mp4"
+          },
+          {
+            "type": "imageSafari",
+            "src": "project-4b.jpg"
+          },
+          {
+            "type": "image",
+            "src": "project-4a.jpg"
+          }
+        ]
+      }
+    ],
+    "credits": [
+      "<a href=\"https://github.com/\" target=\"_blank\" rel=\"noopener\">Person 1</a>"
+    ]
+  },
+  {
+    "slug": "project3",
+    "title": "Project<br>3",
+    "cover": "hero.jpg",
+    "color": "#FFFFFF",
+    "year": "2024",
+    "keywords": ["reactJs", "threeJs", "tailwindcss"],
+    "desc": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+    "content": [
+      {
+        "type": "vImage",
+        "src": "project-1.jpg"
+      },
+      {
+        "type": "vImageFull",
+        "src": "project-2.jpg"
+      },
+      {
+        "type": "vImage",
+        "src": "project-3.jpg"
+      }
+    ],
+    "credits": [
+      "<a href=\"https://github.com/\" target=\"_blank\" rel=\"noopener\">Person 1</a>"
+    ]
+  },
+  {
+    "slug": "project4",
+    "title": "Project<br>4",
+    "cover": "hero.jpg",
+    "color": "#FFFFFF",
+    "year": "2024",
+    "keywords": ["reactJs", "threeJs", "tailwindcss"],
+    "desc": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+    "content": [
+      {
+        "type": "vImage",
+        "src": "project-1.jpg"
+      },
+      {
+        "type": "vImageFull",
+        "src": "project-2.jpg"
+      },
+      {
+        "type": "vImage",
+        "src": "project-3.jpg"
+      }
+    ],
+    "credits": [
+      "<a href=\"https://github.com/\" target=\"_blank\" rel=\"noopener\">Person 1</a>"
+    ]
+  }
+]
