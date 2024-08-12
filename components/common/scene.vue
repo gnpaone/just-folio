@@ -56,7 +56,7 @@ export default {
       "currentProject",
       "nextOffset"
     ]),
-    ...mapGetters(["project", "projectId", "nextProject", "isFF", "isDevice"]),
+    ...mapGetters(["project", "projectId", "nextProject", "isFF", "isDevice", "isPhone"]),
     canvasEvents() {
       return (
         (this.$route.name === "projects" && !this.isDevice) ||
@@ -174,7 +174,7 @@ export default {
 
       this.indexSprite = new IndexSprite(
         this.$refs.threejsContainer,
-        path,
+        this.isPhone,
         this.isDevice,
         '.listRoot',
         '.listItem'

@@ -3,12 +3,12 @@ import * as THREE from "three";
 import { TweenLite, Power4 } from "gsap";
 
 class IndexSprite {
-  constructor(stage, path, isDevice, listRoot, itemRoot) {
+  constructor(stage, isPhone, isDevice, listRoot, itemRoot) {
     this.stage = stage;
     this.isDevice = isDevice;
+    this.isPhone = isPhone;
     this.ratio = 1;
     this.stage.name = "index";
-    this.path = path;
     this.listRoot = listRoot;
     this.itemRoot = itemRoot;
     this.coef = 0;
@@ -339,7 +339,7 @@ class IndexSprite {
       this.camera.aspect = this.width / this.height;
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(this.width, this.height);
-      location.reload();
+      if (!this.isPhone) location.reload();
     }
   }
 
