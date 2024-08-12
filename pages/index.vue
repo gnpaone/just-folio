@@ -48,7 +48,8 @@ export default {
   min-height 100vh
   padding-bottom 20vh
 
-
 .about
   margin-bottom 20vh
+  .device &
+    margin-top 5vh
 </style>
