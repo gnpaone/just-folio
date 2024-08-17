@@ -1,7 +1,7 @@
 [
   {
     "slug": "project1",
-    "title": "Project<br>1",
+    "title": "Project 1",
     "cover": "hero.jpg",
     "color": "#FFFFFF",
     "year": "2024",
@@ -32,7 +32,7 @@
   },
   {
     "slug": "project2",
-    "title": "Project<br>2",
+    "title": "Project 2",
     "cover": "hero.jpg",
     "color": "#FFFFFF",
     "year": "2024",
@@ -88,7 +88,7 @@
   },
   {
     "slug": "project3",
-    "title": "Project<br>3",
+    "title": "Project 3",
     "cover": "hero.jpg",
     "color": "#FFFFFF",
     "year": "2024",
@@ -114,7 +114,7 @@
   },
   {
     "slug": "project4",
-    "title": "Project<br>4",
+    "title": "Project 4",
     "cover": "hero.jpg",
     "color": "#FFFFFF",
     "year": "2024",

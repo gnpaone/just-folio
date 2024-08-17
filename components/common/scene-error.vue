@@ -5,7 +5,6 @@
 import anime from 'animejs';
 import transform from 'dom-transform';
 import ContactSprite from '~/assets/js/pixi/contact/ContactSprite'
-import IndexSprite from '~/assets/js/pixi/index/IndexSprite'
 import ErrorSprite from '~/assets/js/pixi/error/ErrorSprite'
 import Projects from '~/assets/js/pixi/projects/Projects'
 import MouseSprite from '~/assets/js/pixi/mouse/MouseSprite'
@@ -34,7 +33,6 @@ export default {
       if(this.projectsSprite)this.projectsSprite.tick(scrollTop, realScrollTop, mouseEaseX, mouseEaseY, mouseEaseSlowX, mouseEaseSlowY)
       if(this.mouseSprite) this.mouseSprite.tick( mouseX, mouseY, mouseEaseX, mouseEaseY)
       if(this.contactSprite)this.contactSprite.tick(scrollTop);
-      this.indexSprite.tick(scrollTop, mouseX, mouseY, mouseEaseSlowX, mouseEaseSlowY);
       this.errorSprite.tick(scrollTop, mouseX, mouseY, mouseEaseSlowX, mouseEaseSlowY);
       this.app.renderer.render(this.app.stage);
 
@@ -47,7 +45,6 @@ export default {
       if(this.projectsSprite)this.projectsSprite.resize(this.w, this.h)
       if(this.mouseSprite) this.mouseSprite.resize(this.w, this.h);
       if(this.contactSprite)this.contactSprite.resize(this.w, this.h);
-      this.indexSprite.resize(this.w, this.h);
       this.errorSprite.resize(this.w, this.h);
       this.app.renderer.resize(this.w, this.h);
 
@@ -73,9 +70,6 @@ export default {
         path = path.replace('f_auto','f_auto,w_1000')
       }
 
-      this.indexSpriteContainer = new PIXI.Sprite();
-      this.indexSprite = new IndexSprite(this.indexSpriteContainer, path, this.isDevice);
-      this.app.stage.addChild(this.indexSpriteContainer);
       this.errorSpriteContainer = new PIXI.Sprite();
       this.errorSprite = new ErrorSprite(this.errorSpriteContainer, path, this.isDevice);
       this.app.stage.addChild(this.errorSpriteContainer);
@@ -88,8 +82,7 @@ export default {
       }else{
         this.app.renderer.plugins.interaction.autoPreventDefault = false
       }
-
-          this.errorSprite.show()
+        this.errorSprite.show()
     },
     animateIn() {
       this.resize()

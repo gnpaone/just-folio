@@ -54,6 +54,10 @@ export default {
     animation-duration 4s
     animation-iteration-count infinite
     display inline-block
+  .large
+    font-family $exo2
+  h2
+    font-family $carter
 
 @keyframes hand
   0%

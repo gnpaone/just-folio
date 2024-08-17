@@ -1,24 +1,5 @@
 <template>
   <div :class="[{ events: canvasEvents }, $route.name]">
-    <div
-      :class="[{ events: canvasEvents }, $route.name]"
-    >
-      <div class="listContainer">
-        <ul ref="listRoot" class="listRoot">
-          <li ref="listItem" v-for="(ind, i) in index" :key="`index-${i}`" class="listItem">
-            <img :src="`${path}${ind.img}`" :alt="ind.text2.replace('<br>', '')" />
-            <p>
-              <span class="first" v-html="ind.text1"></span>
-              <span class="second" v-html="ind.text2"></span>
-            </p>
-          </li>
-        </ul>
-      </div>
-      <div
-        ref="threejsContainer"
-        class="listCanva"
-      ></div>
-    </div>
     <canvas
       ref="pixiCanvas"
       :class="[{ events: canvasEvents }, $route.name]"
@@ -30,7 +11,6 @@
 import anime from "animejs";
 import transform from "dom-transform";
 import ContactSprite from "~/assets/js/pixi/contact/ContactSprite";
-import IndexSprite from "~/assets/js/pixi/index/IndexSprite"; //h
 import Projects from "~/assets/js/pixi/projects/Projects";
 import MouseSprite from "~/assets/js/pixi/mouse/MouseSprite";
 import Emitter from "~/assets/js/events/EventsEmitter";
@@ -50,7 +30,6 @@ export default {
   computed: {
     ...mapState([
       "projects",
-      "index",
       "contact",
       "path",
       "currentProject",
@@ -91,15 +70,6 @@ export default {
       if (this.mouseSprite)
         this.mouseSprite.tick(mouseX, mouseY, mouseEaseX, mouseEaseY);
       if (this.contactSprite) this.contactSprite.tick(scrollTop);
-      if (this.indexSprite) {
-        this.indexSprite.tick(
-          scrollTop,
-          mouseX,
-          mouseY,
-          mouseEaseSlowX,
-          mouseEaseSlowY
-        ); //h
-      }
       this.app.renderer.render(this.app.stage);
     },
     resize(w, h) {
@@ -110,9 +80,6 @@ export default {
       if (this.projectsSprite) this.projectsSprite.resize(this.w, this.h);
       if (this.mouseSprite) this.mouseSprite.resize(this.w, this.h);
       if (this.contactSprite) this.contactSprite.resize(this.w, this.h);
-      if (this.indexSprite) {
-        this.indexSprite.resize(this.w, this.h); //h
-      }
       this.app.renderer.resize(this.w, this.h);
     },
     setPixi() {
@@ -163,23 +130,6 @@ export default {
       } else {
         this.app.renderer.plugins.interaction.autoPreventDefault = false;
       }
-    },
-    setThreeJS() {
-      let path = this.path;
-      if (this.w < 600) {
-        path = path.replace("f_auto", "f_auto,w_600");
-      } else if (this.w < 1000) {
-        path = path.replace("f_auto", "f_auto,w_1000");
-      }
-
-      this.indexSprite = new IndexSprite(
-        this.$refs.threejsContainer,
-        this.isPhone,
-        this.isDevice,
-        '.listRoot',
-        '.listItem'
-      );
-      this.indexSprite.animate();
     },
     animateIn() {
       this.resize();
@@ -252,16 +202,13 @@ export default {
       this.reset();
       switch (fromPageName) {
         case "index":
-          if (this.indexSprite) {
-            anime({
-              targets: '.listRoot',
-              opacity: [1, 0],
-              alpha: 0,
-              easing: "easeOutQuad",
-              duration: 800
-            });
-            this.indexSprite.hide(); //h
-          }
+          anime({
+            targets: '.listRoot .listCanva',
+            opacity: [1, 0],
+            alpha: 0,
+            easing: "easeOutQuad",
+            duration: 500
+          });
           break;
         case "contact":
           if (this.contactSprite) this.contactSprite.hide();
@@ -308,23 +255,19 @@ export default {
       if (this.mouseSprite) this.mouseSprite.changePage(this.$route.name);
       switch (this.$route.name) {
         case "index":
-          if (this.indexSprite) {
-            anime({
-              targets: '.listRoot',
-              opacity: [0, 1],
-              alpha: 1,
-              easing: "easeOutQuad",
-              duration: 500,
-            });
-            this.indexSprite.show(); //h
-          }
+          anime({
+            targets: '.listRoot .listCanva',
+            opacity: [0, 1],
+            alpha: 1,
+            easing: "easeOutQuad",
+            duration: 700,
+          });
           break;
         case "contact":
           if (this.contactSprite) this.contactSprite.show();
           break;
         case "projects":
           if (this.projectsSprite) this.projectsSprite.showProjects(isFast);
-          this.indexSprite.hide();
           this.resize();
           break;
         case "project-slug":
@@ -365,7 +308,6 @@ export default {
     this.w = window.innerWidth;
     this.isMobile = this.w < 769;
     this.setPixi();
-    this.setThreeJS();
     this.setEvents();
     document.querySelector(".scroll").style.top = "1px";
     Emitter.emit("GLOBAL:RESIZE");
@@ -393,57 +335,9 @@ div
   z-index 2
   pointer-events none
   .device &.index
-    position relative
+    display none
   &.events
     pointer-events auto
-
-.listContainer
-  position relative
-  display inline
-  top 7vh
-  z-index 2
-  pointer-events none
-  scroll-behavior smooth
-  transition all 1.8s cubic-bezier(0.76, 0.16, 0.24, 0.86)
-
-.listCanva
-  height 100vh
-  width 100vw
-  position fixed
-  inset 0px
-  z-index -10
-
-.listRoot
-  display flex
-  max-width 40rem
-  margin 0 auto
-  list-style-type none
-  justify-content center
-  pointer-events auto
-
-  p
-    font-size 2.5rem
-    line-height 8rem
-    font-weight normal
-    letter-spacing calc((100vh - 300px) / 20)
-    max-width 50rem
-    margin 0 auto
-    writing-mode vertical-rl
-
-    .first
-      font-family $yrdzst
-
-    .second
-      font-family $fujimaru
-
-
-.listItem
-  width 30%
-  align-self flex-start
-  display inline-block
-
-  img
-    display none
 
 canvas
   position fixed

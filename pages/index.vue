@@ -46,10 +46,11 @@ export default {
   background $black
   width 100%
   min-height 100vh
-  padding-bottom 20vh
+  padding-bottom 10vh
+
 
 .about
-  margin-bottom 20vh
-  .device &
-    margin-top 5vh
+  margin-bottom 10vh
+  .mobile &
+    margin-top 1vh
 </style>

@@ -2,7 +2,7 @@
   <article class="credits">
     <h3 class="title">Kiran MK.</h3>
     <p>Copyright &copy; 2024. <br />All rights reserved.</p>
-    <p>This website is developed with VueJs <br />with NuxtJs.</p>
+    <p>This website is developed with NuxtJs.</p>
     <p>
       ThreeJS & WebGL rendered PixiJS animations <br />overlayed with animeJS.
     </p>
@@ -63,6 +63,9 @@ a
   display inline-block
   border-bottom 1px solid #fff
   line-height 1
+
+h3
+  font-family $carter
 
 .inline-image {
   width 25px;

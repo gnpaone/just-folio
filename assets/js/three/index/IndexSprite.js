@@ -7,12 +7,9 @@ class IndexSprite {
     this.stage = stage;
     this.isDevice = isDevice;
     this.isPhone = isPhone;
-    this.ratio = 1;
     this.stage.name = "index";
     this.listRoot = listRoot;
     this.itemRoot = itemRoot;
-    this.coef = 0;
-    this.coefScroll = 1;
     this.strength = 0.5;
     this.isLoaded = false;
     this.uniforms = {
@@ -355,18 +352,6 @@ class IndexSprite {
     this.orientationY = x / 180;
   }
 
-  tick(scrollTop, mouseX, mouseY, easeSlowX, easeSlowY) {
-    if (!this.stage.style.display) return;
-    const posX = this.isDevice
-      ? this.orientationX || 0.1
-      : easeSlowX / this.width - 0.5;
-    const posY = this.isDevice
-      ? this.orientationY || 0.1
-      : easeSlowY / this.height - 0.5;
-    this.coefScroll = 1 - scrollTop / (this.height / 2 + this.logoH / 2);
-    if (!this.isDevice) this.stage.style.top = -scrollTop + "px";
-  }
-
   canvashow() {
     anime({
       targets: this.stage,
@@ -418,17 +403,6 @@ class IndexSprite {
         this.stage.style.display = "none";
       }
     });
-  }
-
-  resize(w, h) {
-    if (w && w) {
-      this.width = w;
-      this.height = h;
-    }
-    this.ratio = Math.min(
-      this.isDevice ? this.height / 1100 : this.width / 1360,
-      1
-    );
   }
 
   destroy() {
